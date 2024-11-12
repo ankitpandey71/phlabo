@@ -9,7 +9,6 @@ const TaskCard = ({task}) => {
 
   return (
     <View style={styles.cardContainer}>
-      {/* Left Section */}
       <View style={styles.leftSection}>
         <Text style={styles.time}>05:00 pm</Text>
         <Text style={styles.date}>23 Aug</Text>
@@ -18,7 +17,6 @@ const TaskCard = ({task}) => {
         </View>
       </View>
 
-      {/* Right Section */}
       <View style={styles.rightSection}>
         <Text style={styles.address}>{task?.address || 'unknown Address'}</Text>
         <View style={styles.row}>
