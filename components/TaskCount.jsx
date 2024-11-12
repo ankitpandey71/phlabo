@@ -4,12 +4,22 @@ import {View, Text, StyleSheet} from 'react-native';
 const TaskCount = ({assignedCount, completedCount}) => (
   <View style={styles.summaryContainer}>
     <View style={styles.card}>
-      <Text style={{color: '#ffffff'}}>Assigned</Text>
-      <Text style={styles.count}>{assignedCount}</Text>
+      <View>
+        <Text style={styles.icon}>📋</Text>
+      </View>
+      <View>
+        <Text style={styles.label}>Assigned</Text>
+        <Text style={styles.count}>{assignedCount}</Text>
+      </View>
     </View>
     <View style={styles.card}>
-      <Text style={{color: '#ffffff'}}>Completed</Text>
-      <Text style={styles.count}>{completedCount}</Text>
+      <View>
+        <Text style={styles.icon}>✅</Text>
+      </View>
+      <View>
+        <Text style={styles.label}>Completed</Text>
+        <Text style={styles.count}>{completedCount}</Text>
+      </View>
     </View>
   </View>
 );
@@ -25,7 +35,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#2e4451',
     padding: 15,
     borderRadius: 10,
+    minWidth: 100,
+    display: 'flex',
+    flexDirection: 'row',
+    margin: 5,
+  },
+  icon: {
+    fontSize: 24,
     color: '#ffffff',
+    marginBottom: 5,
+  },
+  label: {
+    color: '#ffffff',
+    fontSize: 16,
   },
   count: {
     fontSize: 24,
