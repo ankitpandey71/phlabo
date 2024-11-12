@@ -1,51 +1,62 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const TaskCard = ({task}) => {
-  console.log(task, 'adadada');
+  console.log(task?.time, 'timeeee');
+  const formattedTime = task?.time
+    ? moment(task.time).format('hh:mm A, DD MMM YYYY')
+    : 'N/A';
+
   return (
     <View style={styles.taskContainer}>
-      {/* Time and Date Section */}
       <View style={styles.timeContainer}>
-        <Text style={styles.time}>{task?.time || 'N/A'}</Text>
-        <Text style={styles.date}>{task?.date || 'N/A'}</Text>
+        <Text style={styles.time}>05:00 pm</Text>
+        <Text style={styles.time}>23 Aug</Text>
+        <Text style={styles.labName}>{task?.lab_name || 'Unknown Lab'}</Text>
       </View>
 
-      {/* Task Info Section */}
       <View style={styles.infoContainer}>
         <Text style={styles.location}>
-          {task?.location || 'Unknown Location'}
+          {task?.address || 'Unknown Address'}
         </Text>
-        <Text style={styles.detail}>
-          {task?.details || 'No Details Provided'}
+        <Text style={styles.patientName}>
+          {task?.patient_name || 'Unknown Patient'}
+        </Text>
+        <Text style={styles.referenceType}>
+          {task?.patient_reference_type || 'N/A'}
+        </Text>
+        <Text style={styles.sampleRecollection}>
+          {task?.sample_recollection ? 'Yes' : 'No'}
         </Text>
       </View>
     </View>
   );
 };
 
-// Define PropTypes for better validation
 TaskCard.propTypes = {
   task: PropTypes.shape({
     time: PropTypes.string,
-    date: PropTypes.string,
-    location: PropTypes.string,
-    details: PropTypes.string,
+    lab_name: PropTypes.string,
+    sample_recollection: PropTypes.bool,
+    address: PropTypes.string,
+    patient_name: PropTypes.string,
+    patient_reference_type: PropTypes.string,
   }),
 };
 
-// Define defaultProps to handle missing props
 TaskCard.defaultProps = {
   task: {
     time: 'N/A',
-    date: 'N/A',
-    location: 'Unknown Location',
-    details: 'No Details Provided',
+    lab_name: 'Unknown Lab',
+    sample_recollection: false,
+    address: 'Unknown Address',
+    patient_name: 'Unknown Patient',
+    patient_reference_type: 'N/A',
   },
 };
 
-// StyleSheet for styling the component
 const styles = StyleSheet.create({
   taskContainer: {
     flexDirection: 'row',
@@ -67,7 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  date: {
+  labName: {
     fontSize: 14,
     color: '#888',
   },
@@ -80,7 +91,15 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 4,
   },
-  detail: {
+  patientName: {
+    fontSize: 14,
+    color: '#555',
+  },
+  referenceType: {
+    fontSize: 14,
+    color: '#555',
+  },
+  sampleRecollection: {
     fontSize: 14,
     color: '#555',
   },
