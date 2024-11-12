@@ -3,19 +3,16 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const PatientInfoScreen = () => (
   <View style={styles.container}>
-    {/* Header */}
     <View style={styles.header}>
       <Text style={styles.backButton}>←</Text>
       <Text style={styles.headerTitle}>Patient Name</Text>
     </View>
 
-    {/* Patient ID and Status */}
     <View style={styles.idStatusContainer}>
       <Text style={styles.patientId}>#T2EDK43578</Text>
       <Text style={styles.status}>Registered</Text>
     </View>
 
-    {/* Patient Information */}
     <View style={styles.patientInfoContainer}>
       <View style={styles.infoRow}>
         <Text style={styles.avatarIcon}>👤</Text>
@@ -30,12 +27,10 @@ const PatientInfoScreen = () => (
       </View>
     </View>
 
-    {/* Map Placeholder */}
     <View style={styles.mapPlaceholder}>
       <Text style={styles.mapText}>Map Placeholder</Text>
     </View>
 
-    {/* Additional Details */}
     <View style={styles.additionalInfo}>
       <View style={styles.detailRow}>
         <Text style={styles.detailLabel}>Patient Type:</Text>
@@ -51,7 +46,6 @@ const PatientInfoScreen = () => (
       </View>
     </View>
 
-    {/* Test Details */}
     <View style={styles.testDetails}>
       <Text style={styles.testTitle}>Test Details</Text>
       <Text style={styles.testName}>Complete Blood Count : CBC</Text>
@@ -60,7 +54,6 @@ const PatientInfoScreen = () => (
       <Text style={styles.labInfo}>🏥 Ahuja Lab</Text>
     </View>
 
-    {/* Action Buttons */}
     <View style={styles.buttonContainer}>
       <TouchableOpacity style={styles.cancelButton}>
         <Text style={styles.buttonText}>Cancel Booking</Text>
@@ -70,7 +63,6 @@ const PatientInfoScreen = () => (
       </TouchableOpacity>
     </View>
 
-    {/* Proceed Button */}
     <TouchableOpacity style={styles.proceedButton}>
       <Text style={styles.proceedText}>Proceed</Text>
     </TouchableOpacity>
