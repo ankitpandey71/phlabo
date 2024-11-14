@@ -11,6 +11,8 @@ import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './screens/HomeScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import BottomTab from './navigation/BottomTab';
 
 function App() {
   // const isDarkMode = useColorScheme() === 'light';
@@ -21,7 +23,9 @@ function App() {
 
   return (
     // <SafeAreaView>
-    <HomeScreen />
+    <NavigationContainer>
+      <BottomTab />
+    </NavigationContainer>
     // </SafeAreaView>
   );
 }
